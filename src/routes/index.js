@@ -1,6 +1,6 @@
 const express = require('express');
 const personRouter = require('./people.router');
-
+const imageRouter = require('./image.router');
 function routerApi(app) {
   const router = express.Router();
   /*Endpoint estático http://localhost:5000/api/v1 */
