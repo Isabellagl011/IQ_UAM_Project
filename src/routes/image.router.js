@@ -1,9 +1,9 @@
 const express = require('express');
-const router_person = express.Router();
+const router_image = express.Router();
 const imageSchema = require('../models/imageModel');
 
 /* POST: http://localhost:5000/api/v1/image */
-router_person.post('/image', (req, res) => {
+router_image.post('/image', (req, res) => {
     const image = imageSchema(req.body);
     image
         .save()
@@ -12,7 +12,7 @@ router_person.post('/image', (req, res) => {
     });
 
 /* GET: http://localhost:5000/api/v1/image */
-router_person.get('/', (req, res) => {
+router_image.get('/', (req, res) => {
     imageSchema
         .find()
         .then((data) => res.json(data))
@@ -20,3 +20,4 @@ router_person.get('/', (req, res) => {
     }
 );
 
+module.exports = router_image;
