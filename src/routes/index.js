@@ -8,5 +8,7 @@ function routerApi(app) {
 
   /*Endpoint estático http://localhost:5000/api/v1 */
   router.use('/people', personRouter);
+
+  router.use('/image', imageRouter);
 }
 module.exports = routerApi;
