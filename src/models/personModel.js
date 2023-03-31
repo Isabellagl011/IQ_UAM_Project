@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const personBillSchema = mongoose.Schema({
+const mongoose = require('mongoose');
+const personSchema = mongoose.Schema({
   name: {
     type: String,
     require: true,
@@ -24,11 +24,11 @@ const personBillSchema = mongoose.Schema({
       type: Number,
       require: true,
     },
-    geo:{
-      type:Array,
-      require:true
+    geo: {
+      type: Array,
+      require: true,
     },
   },
 });
 
-module.exports= mongoose.model('PersonBillCollection',personBillSchema)
+module.exports = mongoose.model('PersonCollection', personSchema);

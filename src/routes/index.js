@@ -1,5 +1,5 @@
 const express = require('express');
-const personBillRouter = require('./peopleBill.router');
+const personRouter = require('./people.router');
 
 function routerApi(app) {
   const router = express.Router();
@@ -7,6 +7,6 @@ function routerApi(app) {
   app.use('/api/v1', router);
 
   /*Endpoint estático http://localhost:5000/api/v1 */
-  router.use('/people', personBillRouter);
+  router.use('/people', personRouter);
 }
 module.exports = routerApi;
