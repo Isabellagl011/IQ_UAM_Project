@@ -5,8 +5,8 @@ const imageSchema = mongoose.Schema({
         require: true,
         unique: true,
     },
-    image:{
-        type:Image,
+    name:{
+        type:String,
         require:true
     }
 
