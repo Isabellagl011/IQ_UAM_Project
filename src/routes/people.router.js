@@ -1,10 +1,10 @@
 const express = require('express');
 const router_person = express.Router();
-const personBillSchema = require('../models/personBillModel');
+const personSchema = require('../models/personModel');
 
 /* POST: http://localhost:5000/api/v1/people/person */
 router_person.post('/person', (req, res) => {
-  const person = personBillSchema(req.body);
+  const person = personSchema(req.body);
   person
     .save()
     .then((data) => res.json(data))
@@ -13,7 +13,7 @@ router_person.post('/person', (req, res) => {
 
 /* GET: http://localhost:5000/api/v1/people */
 router_person.get('/', (req, res) => {
-  personBillSchema
+  personSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -22,7 +22,7 @@ router_person.get('/', (req, res) => {
 /* GET{:id}: http://localhost:5000/api/v1/people/personId */
 router_person.get('/:personId', (req, res) => {
   const { personId } = req.params;
-  personBillSchema
+  personSchema
     .findById(personId)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -32,7 +32,7 @@ router_person.get('/:personId', (req, res) => {
 router_person.put('/:personId', (req, res) => {
   const { personId } = req.params;
   const { name, lastname, dni, address = { city, code_zip, geo } } = req.body;
-  personBillSchema
+  personSchema
     .updateOne({ _id: personId }, { $set: { name, lastname, dni, address } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -41,8 +41,8 @@ router_person.put('/:personId', (req, res) => {
 /* DELETE{:id}: http://localhost:5000/api/v1/people/personId */
 router_person.delete('/:personId', (req, res) => {
   const { personId } = req.params;
-  personBillSchema
-    .remove({ _id: personId })
+  personSchema
+    .deleteOne({ _id: personId })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
