@@ -9,9 +9,9 @@ const imageSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  answer: {
+ /*  answer: {
     type: this.schema.ObjetId,
     ref: 'imageModel',
-  },
+  }, */
 });
 module.exports = mongoose.model('ImageCollection', imageSchema);
