@@ -4,6 +4,10 @@ const resultSchema = mongoose.Schema({
     type: Number,
     require: true,
     ref : 'imageModel'
+  },
+  id :{
+    type: String,
+    require: true,
   }
 });
 
